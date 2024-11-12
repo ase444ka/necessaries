@@ -1,0 +1,39 @@
+
+@import './fonts/fonts.css';
+@import 'normalize.css';
+:root {
+  --white: #FFFFFF;
+  --primary: #275742;
+  --black: #606462;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--primary);
+  background: var(--white);
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: Ubuntu, Roboto, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
