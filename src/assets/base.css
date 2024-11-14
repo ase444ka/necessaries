@@ -20,13 +20,9 @@ body {
   min-height: 100vh;
   color: var(--primary);
   background: var(--white);
-  transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: Ubuntu, Roboto, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 15px;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Ubuntu, Roboto, Arial, sans-serif;
+  font-size: 16px;
 }
 
 a {
@@ -36,4 +32,10 @@ a {
 
 ul {
   list-style-type: none;
+}
+
+h2 {
+  font-size: 48px;
+  text-transform: capitalize;
+  text-align: center;
 }
