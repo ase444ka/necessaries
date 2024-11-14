@@ -44,6 +44,7 @@ header {
     font-weight: bold;
     font-size: 2rem;
     margin: 0; 
+    cursor: default;
   }
   ul {
     display: flex;
