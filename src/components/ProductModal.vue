@@ -2,15 +2,15 @@
    <div class="modal">
         <div class="window">
           <div class="header">
-            <h3 class="title title title_size_small">Доска с листьями</h3>
-            <button class="close" id="modal-close">
-            </button>
+            <h3 class="title title title_size_small">{{product.title}}</h3>
+            <RouterLink class="close" to="/">
+            </RouterLink>
           </div>
 
           <div class="content">
             <div class="image">
               <img
-                src="https://cdn1.ozone.ru/s3/multimedia-5/6383200529.jpg"
+                :src="product.image"
                 alt="сумка"
               />
             </div>
@@ -18,19 +18,19 @@
             <div class="text">
               <div class="description">
                 <h6>Описание</h6>
-                Lorem ipsum dolor sit amet consectetur.
+                {{product.description}}
               </div>
               <div class="category">
                 <h6>Категория</h6>
-                Lorem ipsum dolor sit amet consectetur.
+                {{product.category}}
               </div>
               <div class="rating">
                 <h6>Рейтинг</h6>
-                Lorem ipsum dolor sit amet consectetur.
+                {{product.rating.rate}}
               </div>
             </div>
             <div class="buy">
-              <div class="price">1000руб.</div>
+              <div class="price">{{product.price}}</div>
 
               <button>купить</button>
             </div>
@@ -39,23 +39,21 @@
       </div>
 </template>
 <script>
+import {useProductStore} from '@/store'
+import { mapStores } from 'pinia'
 export default {
    name: 'ProductModal',
-   components: {
-     
-   },
-   mixins: [],
-   props: {
-     
-   },
-   data() {
-     return {
-       
-     }
-   },
-   computed: {
-     
-   },
+   
+mounted() {
+  console.log(this.productStore.products)
+},
+    computed: {
+  ...mapStores(useProductStore),
+  product() {
+
+    return this.productStore.products.find(p => p.id == this.$route.params.id)
+  }
+},
    watch: {
      
    },
@@ -75,6 +73,7 @@ export default {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 10000;
   background: rgba(80%, 80%, 80%, 80%);
   justify-content: center;
   align-items: center;
@@ -105,6 +104,7 @@ export default {
 .close {
   background: url(@/assets/x.svg);
   background-size: contain;
+  background-repeat: no-repeat;
   width: 40px;
   height: 40px;
   border: none;

@@ -1,12 +1,12 @@
 <template>
   <div class="products">
-    <div v-for="p in productStore.products" class="product">
+    <RouterLink v-for="p in productStore.products" :key="p.id" class="product" :to="`/product/${p.id}`">
       <img :src="p.image" />
       <div class="title">
         {{ p.title }}
       </div>
       <button class="buy">купить</button>
-    </div>
+    </RouterLink>
   </div>
 </template>
 <script>
@@ -33,6 +33,7 @@ export default {
   }
 }
 .product {
+  cursor: default;
   color: var(--primary);
   width: 380px;
   font-size: 1.2rem;
@@ -56,6 +57,7 @@ export default {
     width: 100%;
     padding: 13px;
     background-color: var(--white);
+    cursor: pointer;
   }
 }
 </style>

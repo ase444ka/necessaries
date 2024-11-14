@@ -4,7 +4,7 @@ import CartPage from '@/pages/CartPage.vue'
 
 export const routes = [
   { path: '/', name: 'main', component: MainPage },
-  { path: '/product', name: 'product', component: ProductPage },
+  { path: '/product/:id', name: 'product', component: ProductPage },
   { path: '/cart', name: 'cart', component: CartPage },
   {
     path: '*',
