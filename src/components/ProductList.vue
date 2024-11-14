@@ -31,11 +31,11 @@ export default {
 }
 .product {
   color: var(--primary);
+  width: 380px;
+  font-size: 1.2rem;
   @media screen and (min-width: 870px) {
     height: 600px;
   }
-  width: 380px;
-  font-size: 1.2rem;
   img {
     object-fit: cover;
     height: 400px;

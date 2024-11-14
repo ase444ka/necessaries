@@ -9,7 +9,7 @@
     </nav>
     <a href="#" class="cart-link">
       <svg>
-        <use href="@/assets/sprites.svg#check"></use>
+        <use href="@/assets/sprites.svg#cart"></use>
       </svg>
       <div class="baidge">1</div>
     </a>
