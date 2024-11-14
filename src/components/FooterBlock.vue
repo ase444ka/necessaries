@@ -3,8 +3,8 @@
     <h1>Штуки</h1>
     <nav>
       <ul>
-        <li><a href="#">главная</a></li>
-        <li><a href="#">магазин</a></li>
+        <li><RouterLink to="/">главная</RouterLink></li>
+        <li><RouterLink to="/">магазин</RouterLink></li>
       </ul>
     </nav>
     <button>

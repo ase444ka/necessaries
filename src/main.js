@@ -10,6 +10,8 @@ import './assets/main.css'
 Vue.use(PiniaVuePlugin)
 Vue.use(VueRouter)
 const router = new VueRouter({
+  mode: 'history',
+  props: true,
   routes // short for `routes: routes`
 })
 

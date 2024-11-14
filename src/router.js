@@ -3,9 +3,14 @@ import ProductPage from '@/pages/ProductPage.vue'
 import CartPage from '@/pages/CartPage.vue'
 
 export const routes = [
-  { path: '/', component: MainPage },
-  { path: '/product', component: ProductPage },
-  { path: '/cart', component: CartPage }
+  { path: '/', name: 'main', component: MainPage },
+  { path: '/product', name: 'product', component: ProductPage },
+  { path: '/cart', name: 'cart', component: CartPage },
+  {
+    path: '*',
+    component: MainPage,
+},
+
 ]
 
 // 3. Create the router instance and pass the `routes` option

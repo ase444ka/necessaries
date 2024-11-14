@@ -3,16 +3,16 @@
     <h1>Штуки</h1>
     <nav>
       <ul>
-        <li><a href="#">главная</a></li>
-        <li><a href="#">магазин</a></li>
+        <li><RouterLink to="/">главная</RouterLink></li>
+        <li><RouterLink to="/">магазин</RouterLink></li>
       </ul>
     </nav>
-    <a href="#" class="cart-link">
+    <RouterLink to="cart" class="cart-link">
       <svg>
         <use href="@/assets/sprites.svg#cart"></use>
       </svg>
       <div class="baidge">1</div>
-    </a>
+    </RouterLink>
   </header>
 </template>
 <script>
