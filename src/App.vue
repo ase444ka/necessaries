@@ -1,15 +1,6 @@
 <template>
   <div id="app">
-    <header>
-      <h1>Штуки</h1>
-      <nav>
-        <ul>
-          <li><a href="#">главная</a></li>
-          <li><a href="#">магазин</a></li>
-        </ul>
-      </nav>
-      <a href="#">корзина</a>
-    </header>
+   <HeaderBlock />
 
     <main>
       <section class="ads">
@@ -91,19 +82,25 @@
 </template>
 
 <script>
-import {productsApi} from '@/api'
+import HeaderBlock from './components/HeaderBlock.vue'
+import {productsApi} from '@/api';
+
+// import AdsBlock from './components/AdsBlock.vue';
 import ProductList from '@/components/ProductList.vue';
+
 export default {
   components: {
     ProductList,
+    // AdsBlock,
+    HeaderBlock,
   },
   mounted() {
-    this.getProducts()
+    this.getProducts();
   },
   data() {
     return {
       products: [],
-    }
+    };
   },
   methods: {
     async getProducts() {
@@ -120,19 +117,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-header {
-  border: 1px solid var(--primary);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  h1 {
-    font-weight: bold;
-  }
-  ul {
-    display: flex;
-    gap: 34px;
-  }
-}
+
 .ads {
   background-color: var(--primary);
   color: var(--white);

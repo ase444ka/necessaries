@@ -15,6 +15,14 @@
 @font-face {
   font-family: Ubuntu;
   font-style: normal;
+  font-weight: medium;
+  src: local('Ubuntu'), url('ubuntu/Ubuntu-Medium.ttf');
+}
+
+
+@font-face {
+  font-family: Ubuntu;
+  font-style: normal;
   font-weight: bold;
   src: local('Ubuntu'), url('ubuntu/Ubuntu-Bold.ttf');
 }
