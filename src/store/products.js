@@ -2,13 +2,13 @@ import {defineStore} from 'pinia';
 import {productsApi} from '@/api'
 
 export const useProductStore = defineStore({
-  id: 'products',
+  id: 'product',
   state: () => ({
     products: [],
   }),
 
   actions: {
-    getProducts: async () => {
+    async getProducts() {
       this.products = await productsApi.getProducts()
     },
   },

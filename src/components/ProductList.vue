@@ -1,6 +1,6 @@
 <template>
   <div class="products">
-    <div v-for="p in products" class="product">
+    <div v-for="p in productStore.products" class="product">
       <img :src="p.image" />
       <div class="title">
         {{ p.title }}
@@ -10,13 +10,16 @@
   </div>
 </template>
 <script>
+import {useProductStore} from '@/store'
+import { mapStores } from 'pinia'
+
+
 export default {
   name: 'ProductList',
-  components: {},
 
-  props: ['products'],
-
-  computed: {},
+  computed: {
+  ...mapStores(useProductStore)
+},
   watch: {},
 };
 </script>

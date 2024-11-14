@@ -2,37 +2,30 @@
   <div id="app">
     <HeaderBlock />
 
-    <main>
-      <AdsBlock />
-      <section class="products">
-        <h2>товары</h2>
-        <ProductList :products="products" />
-      </section>
-      <ProductModal />
-    </main>
-
+    <RouterView />
     <FooterBlock />
   </div>
 </template>
 
 <script>
+import { mapStores } from 'pinia'
 import FooterBlock from './components/FooterBlock.vue';
 import HeaderBlock from './components/HeaderBlock.vue';
 import {productsApi} from '@/api';
+import {useProductStore} from '@/store'
 
-import AdsBlock from './components/AdsBlock.vue';
-import ProductList from '@/components/ProductList.vue';
-import ProductModal from './components/ProductModal.vue';
 
 export default {
   components: {
-    ProductList,
-    AdsBlock,
     HeaderBlock,
     FooterBlock,
-    ProductModal
+},
+computed: {
+  ...mapStores(useProductStore)
 },
   mounted() {
+    
+    console.log('pr', useProductStore)
     this.getProducts();
   },
   data() {
@@ -43,7 +36,7 @@ export default {
   methods: {
     async getProducts() {
       try {
-        this.products = await productsApi.getProducts();
+        await this.productStore.getProducts()
       } catch (e) {
         alert(`Возникла ошибка: ${e.message}. Попробуйте позже`);
       }
