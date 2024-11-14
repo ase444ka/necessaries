@@ -10,11 +10,12 @@
       </section>
     </main>
 
-    <footer></footer>
+    <FooterBlock />
   </div>
 </template>
 
 <script>
+import FooterBlock from './components/FooterBlock.vue'
 import HeaderBlock from './components/HeaderBlock.vue';
 import {productsApi} from '@/api';
 
@@ -25,7 +26,7 @@ export default {
   components: {
     ProductList,
     AdsBlock,
-    HeaderBlock,
+    HeaderBlock, FooterBlock
   },
   mounted() {
     this.getProducts();
