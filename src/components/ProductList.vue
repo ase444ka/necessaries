@@ -2,7 +2,10 @@
   <div class="products">
     <div v-for="p in products" class="product">
       <img :src="p.image" />
-      {{ p.title }}
+      <div class="title">
+        {{ p.title }}
+      </div>
+      <button class="buy">купить</button>
     </div>
   </div>
 </template>
@@ -11,24 +14,45 @@ export default {
   name: 'ProductList',
   components: {},
 
-
   props: ['products'],
 
   computed: {},
   watch: {},
- 
-  
 };
 </script>
 <style lang="scss" scoped>
 .products {
   display: flex;
-  gap: 6px;
+  gap: 30px;
   flex-wrap: wrap;
-}
-  .product {
-    background-color: var(--primary);
-    color: var(--white);
-    padding: 5px;
+  @media screen and (max-width: 870px) {
+    justify-content: center;
   }
+}
+.product {
+  color: var(--primary);
+  @media screen and (min-width: 870px) {
+    height: 600px;
+  }
+  width: 380px;
+  font-size: 1.2rem;
+  img {
+    object-fit: cover;
+    height: 400px;
+    width: 100%;
+  }
+  .title {
+    @media screen and (min-width: 870px) {
+      min-height: 140px;
+    }
+  }
+  .buy {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    text-transform: capitalize;
+    width: 100%;
+    padding: 13px;
+    background-color: var(--white);
+  }
+}
 </style>
