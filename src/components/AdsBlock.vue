@@ -76,7 +76,11 @@ export default {
 
 <style scoped lang="scss">
 .ads {
-  cursor:default;
+  @media screen and (max-width: 900px) {
+    display: none;
+  } 
+    
+  cursor: default;
   background-color: var(--primary);
   color: var(--white);
   padding: 40px 40px 0;

@@ -33,7 +33,7 @@ export default {
   display: flex;
   gap: 30px;
   flex-wrap: wrap;
-  @media screen and (max-width: 870px) {
+  @media screen and (max-width: 1280px) {
     justify-content: center;
   }
 }

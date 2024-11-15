@@ -111,7 +111,7 @@ export default {
 .content {
   display: grid;
   grid-template-columns: 500px 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: repeat(2,max-content);
   gap: 40px;
   padding: 40px;
 
