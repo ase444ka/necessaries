@@ -9,7 +9,7 @@ export const useCartStore = defineStore({
   }),
   getters: {
     totalSum() {
-      return this.orderedProducts.reduce((p, c) => p + c.count * c.price, 0);
+      return Math.round(this.orderedProducts.reduce((p, c) => p + c.count * c.price, 0) * 100) / 100;
     },
     totalCount: (state) =>
       Object.values(state.order).reduce((p, c) => p + c, 0),
@@ -17,6 +17,7 @@ export const useCartStore = defineStore({
       Object.entries(state.order).map((e) => ({
         ...useProductStore().getProductById(e[0]),
         count: e[1],
+        sum: Math.round(e[1] * useProductStore().getProductById(e[0]).price * 100) / 100
       })),
   },
   actions: {
