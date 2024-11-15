@@ -114,18 +114,24 @@ export default {
   grid-template-rows: repeat(2,max-content);
   gap: 40px;
   padding: 40px;
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 600px max-content max-content;
+    
+  }
 
   .image {
-    flex-basis: 600px;
-    height: 600 px;
-    flex-shrink: 0;
-    flex-grow: 0;
     overflow: hidden;
+    @media screen and (min-width: 1000px) {
     grid-row: span 2;
-
+    }
     img {
-      object-fit: cover;
+      object-fit:fill;
       width: 100%;
+      @media screen and (max-width: 1000px) {
+        width: inherit;
+        height: 100%;
+    }
     }
   }
   .text {
