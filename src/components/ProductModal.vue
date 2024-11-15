@@ -41,7 +41,7 @@ export default {
   name: 'ProductModal',
 
   computed: {
-    ...mapStores(useProductStore),
+    ...mapStores(useProductStore, useCartStore),
     product() {
       return this.productStore.getProductById(this.$route.params.id);
     },

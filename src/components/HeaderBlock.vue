@@ -11,23 +11,20 @@
       <svg>
         <use href="@/assets/sprites.svg#cart"></use>
       </svg>
-      <div class="baidge">1</div>
+      <div class="baidge">{{ cartStore.totalCount }}</div>
     </RouterLink>
   </header>
 </template>
 <script>
+import {useCartStore} from '@/store';
+import {mapStores} from 'pinia';
 export default {
   name: 'HeaderBlock',
-  components: {},
-  mixins: [],
-  props: {},
-  data() {
-    return {};
+
+  computed: {
+    ...mapStores(useCartStore),
   },
-  computed: {},
-  watch: {},
-  mounted() {},
-  methods: {},
+
 };
 </script>
 <style lang="scss" scoped>

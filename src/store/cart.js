@@ -8,8 +8,11 @@ export const useCartStore = defineStore({
     order: {},
   }),
   getters: {
-    sum: (state) =>
-      Object.entries(state.order).reduce((p, c) => p + c.count * c.price, 0),
+    sum() {
+      return this.orderedProducts.reduce((p, c) => p + c.count * c.price, 0);
+    },
+    totalCount: (state) =>
+      Object.values(state.order).reduce((p, c) => p + c, 0),
     orderedProducts: (state) =>
       Object.entries(state.order).map((e) => ({
         ...useProductStore().getProductById(e[0]),
@@ -17,7 +20,7 @@ export const useCartStore = defineStore({
       })),
   },
   actions: {
-    addProduct(id) {  
+    addProduct(id) {
       const count = (this.order[id] || 0) + 1;
       this.order = {...this.order, [id]: count};
     },
