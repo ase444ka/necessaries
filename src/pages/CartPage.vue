@@ -62,9 +62,21 @@ export default {
   padding: 20px;
   font-weight: medium;
   font-size: 22px;
+  @media screen and (max-width: 1005px) {
+    grid-template-columns: 1fr;
+  }
 }
 .header {
   border-top: 2px solid var(--primary);
+  @media screen and (max-width: 1150px) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: 1005px) {
+    height: 0px;
+    overflow: hidden;
+    border-bottom: none;
+    padding: 0;
+  }
   
 }
 .header, .footer {
