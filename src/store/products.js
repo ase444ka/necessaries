@@ -7,6 +7,12 @@ export const useProductStore = defineStore({
     products: [],
   }),
 
+  getters: {
+    getProductById: (state) => {
+      return (id) => state.products.find((p) => p.id == id)
+    },
+  },
+
   actions: {
     async getProducts() {
       this.products = await productsApi.getProducts()

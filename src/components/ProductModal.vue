@@ -1,68 +1,57 @@
 <template>
-   <div class="modal">
-        <div class="window">
-          <div class="header">
-            <h3 class="title title title_size_small">{{product.title}}</h3>
-            <RouterLink class="close" to="/">
-            </RouterLink>
+  <div class="modal">
+    <div class="window">
+      <div class="header">
+        <h3 class="title title title_size_small">{{ product.title }}</h3>
+        <RouterLink class="close" to="/"> </RouterLink>
+      </div>
+
+      <div class="content">
+        <div class="image">
+          <img :src="product.image" alt="сумка" />
+        </div>
+
+        <div class="text">
+          <div class="description">
+            <h6>Описание</h6>
+            {{ product.description }}
           </div>
-
-          <div class="content">
-            <div class="image">
-              <img
-                :src="product.image"
-                alt="сумка"
-              />
-            </div>
-
-            <div class="text">
-              <div class="description">
-                <h6>Описание</h6>
-                {{product.description}}
-              </div>
-              <div class="category">
-                <h6>Категория</h6>
-                {{product.category}}
-              </div>
-              <div class="rating">
-                <h6>Рейтинг</h6>
-                {{product.rating.rate}}
-              </div>
-            </div>
-            <div class="buy">
-              <div class="price">{{product.price}}</div>
-
-              <button>купить</button>
-            </div>
+          <div class="category">
+            <h6>Категория</h6>
+            {{ product.category }}
+          </div>
+          <div class="rating">
+            <h6>Рейтинг</h6>
+            {{ product.rating.rate }}
           </div>
         </div>
+        <div class="buy">
+          <div class="price">{{ product.price }}</div>
+
+          <button  @click="addToCart(product.id)">купить</button>
+        </div>
       </div>
+    </div>
+  </div>
 </template>
 <script>
-import {useProductStore} from '@/store'
-import { mapStores } from 'pinia'
+import {useProductStore, useCartStore} from '@/store';
+import {mapStores} from 'pinia';
 export default {
-   name: 'ProductModal',
-   
-mounted() {
-  console.log(this.productStore.products)
-},
-    computed: {
-  ...mapStores(useProductStore),
-  product() {
+  name: 'ProductModal',
 
-    return this.productStore.products.find(p => p.id == this.$route.params.id)
-  }
-},
-   watch: {
-     
-   },
-   mounted() {
-     
-   },
-   methods: {
-     
-   }
+  computed: {
+    ...mapStores(useProductStore),
+    product() {
+      return this.productStore.getProductById(this.$route.params.id);
+    },
+  },
+
+  methods: {
+    addToCart(id) {
+      this.cartStore.addProduct(id);
+    },
+  },
 };
 </script>
 <style scoped lang="scss">
@@ -96,7 +85,7 @@ mounted() {
   padding: 15px;
   display: flex;
   justify-content: space-between;
-  align-items: center ;
+  align-items: center;
   h3 {
     font-size: 2rem;
   }
@@ -149,25 +138,31 @@ mounted() {
       color: #606462;
       font-size: 1.25rem;
     }
-
-    
   }
   .buy {
+    align-self: end;
+    .price {
+      font-size: 2.25rem;
       align-self: end;
-      .price {
-        font-size: 2.25rem;
-        align-self: end;
-      }
-
-      button {
-        border: 2px solid var(--primary);
-        color: var(--white);
-        font-size: 1.5rem;
-        text-transform: capitalize;
-        width: 100%;
-        padding: 13px;
-        background-color: var(--primary);
-      }
     }
+
+    button {
+      border: 2px solid var(--primary);
+      color: var(--white);
+      font-size: 1.5rem;
+      text-transform: capitalize;
+      width: 100%;
+      padding: 13px;
+      background-color: var(--primary);
+      &:hover {
+      transform: translate3d(1px, 1px, -1px);
+    }
+    &:active {
+      background-color: var(--white);
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    }
+  }
 }
 </style>

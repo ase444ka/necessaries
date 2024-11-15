@@ -5,12 +5,12 @@
       <div class="title">
         {{ p.title }}
       </div>
-      <button class="buy">купить</button>
+      <button class="buy" @click.prevent="addToCart(p.id)">купить</button>
     </RouterLink>
   </div>
 </template>
 <script>
-import {useProductStore} from '@/store'
+import {useProductStore, useCartStore} from '@/store'
 import { mapStores } from 'pinia'
 
 
@@ -18,9 +18,14 @@ export default {
   name: 'ProductList',
 
   computed: {
-  ...mapStores(useProductStore)
+  ...mapStores(useProductStore, useCartStore)
 },
   watch: {},
+  methods: {
+    addToCart(id) {
+      this.cartStore.addProduct(id)
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -58,6 +63,13 @@ export default {
     padding: 13px;
     background-color: var(--white);
     cursor: pointer;
+    &:hover {
+      transform: translate3d(1px, 1px, -1px);
+    }
+    &:active {
+      background-color: var(--primary);
+      color: var(--white)
+    }
   }
 }
 </style>
