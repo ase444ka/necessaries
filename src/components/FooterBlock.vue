@@ -4,7 +4,7 @@
     <nav>
       <ul>
         <li><RouterLink to="/">главная</RouterLink></li>
-        <li><RouterLink to="/">магазин</RouterLink></li>
+        <li><RouterLink to="/cart">корзина</RouterLink></li>
       </ul>
     </nav>
     <button>
