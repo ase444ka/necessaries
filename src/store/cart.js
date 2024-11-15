@@ -8,7 +8,7 @@ export const useCartStore = defineStore({
     order: {},
   }),
   getters: {
-    sum() {
+    totalSum() {
       return this.orderedProducts.reduce((p, c) => p + c.count * c.price, 0);
     },
     totalCount: (state) =>
@@ -23,6 +23,12 @@ export const useCartStore = defineStore({
     addProduct(id) {
       const count = (this.order[id] || 0) + 1;
       this.order = {...this.order, [id]: count};
+    },
+    removeProduct(id) {
+      const tmp = {...this.order};
+      console.log('deleting ', id)
+      delete tmp[id];
+      this.order = tmp;
     },
   },
 });

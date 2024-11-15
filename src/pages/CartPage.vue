@@ -8,31 +8,27 @@
         <div>Кол-во</div>
         <div>Сумма, руб</div>
       </div>
-      <div class="row">
-        <div>Доска с листьями</div>
-        <div>1000</div>
-        <div>1</div>
-        <div>1000</div>
-        <div><button class="remove"></button></div>
+      <div class="row" v-for="p in cartStore.orderedProducts">
+        <div>{{ p.title }}</div>
+        <div>{{p.price}}</div>
+        <div>{{ p.count }}</div>
+        <div>{{ p.price * p.count }}</div>
+        <div><button class="remove" @click="remove(p.id)"></button></div>
       </div>
-      <div class="row">
-        <div>Веселый куб</div>
-        <div>5000</div>
-        <div>1</div>
-        <div>500</div>
-        <div><button class="remove"></button></div>
-      </div>
+      
       <div class="row footer">
         <div>Итог</div>
-        <div>5000</div>
-        <div>2</div>
-        <div>6000</div>
+        <div></div>
+        <div>{{ cartStore.totalCount }}</div>
+        <div>{{ cartStore.totalSum }}</div>
       </div>
     </section>
     <ProductModal />
   </main>
 </template>
 <script>
+import {useCartStore} from '@/store';
+import {mapStores} from 'pinia';
 export default {
   name: 'CartPage',
   components: {},
@@ -41,16 +37,25 @@ export default {
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    ...mapStores(useCartStore),
+  },
   watch: {},
   mounted() {},
-  methods: {},
+  methods: {
+    remove(id) {
+      this.cartStore.removeProduct(id)
+    }
+  },
 };
 </script>
 <style lang="scss" scoped>
 .row {
+  div:first-child {
+    font-size: 16px;
+  }
   display: grid;
-  grid-template-columns: minmax(max-content, 300px) 1fr 1fr 1fr 30px;
+  grid-template-columns: minmax(200px, 600px) 1fr 1fr 1fr 30px;
   border-bottom: 2px solid var(--primary);
   border-left: 2px solid var(--primary);
   border-right: 2px solid var(--primary);
@@ -75,8 +80,8 @@ export default {
   background-color: var(--white);
   width: 18px;
   height: 18px;
-
   background-size: contain;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 </style>
