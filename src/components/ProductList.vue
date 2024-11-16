@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import {useProductStore, useCartStore} from '@/store'
+import {useProductStore, useCartStore} from '../store'
 import { mapStores } from 'pinia'
 
 

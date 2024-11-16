@@ -1,6 +1,9 @@
 <template>
   <section class="ads">
-    <p>Смотри внимательно <br> сколько всего у нас есть</p>
+    <p>
+      Смотри внимательно <br />
+      сколько всего у нас есть
+    </p>
     <h1>Магазин очень нужных штуковин</h1>
     <svg
       width="403"
@@ -76,10 +79,6 @@ export default {
 
 <style scoped lang="scss">
 .ads {
-  @media screen and (max-width: 900px) {
-    display: none;
-  } 
-    
   cursor: default;
   background-color: var(--primary);
   color: var(--white);
@@ -87,25 +86,27 @@ export default {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-template-areas: 
-    "text   img"
-    "header img";
-    p {
-      grid-area: text;
-      font-size: 1.5rem;
-    }
-    h1 {
-      padding-top: 45px;  
-      grid-area: header;
-      font-size: 78px;
-      line-height: 89px;
-      padding: 0;
-      margin: 0;  
-      font-weight: normal;
-    }
-    svg {
-      grid-area: img  ;
-    }
-  
+  grid-template-areas:
+    'text   img'
+    'header img';
+  p {
+    grid-area: text;
+    font-size: 1.5rem;
+  }
+  h1 {
+    padding-top: 45px;
+    grid-area: header;
+    font-size: 78px;
+    line-height: 89px;
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+  }
+  svg {
+    grid-area: img;
+  }
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
 }
 </style>

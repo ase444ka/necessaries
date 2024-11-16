@@ -35,7 +35,7 @@
   </div>
 </template>
 <script>
-import {useProductStore, useCartStore} from '@/store';
+import {useProductStore, useCartStore} from '../store';
 import {mapStores} from 'pinia';
 export default {
   name: 'ProductModal',
@@ -91,7 +91,7 @@ export default {
   }
 }
 .close {
-  background: url(@/assets/x.svg);
+  background: url(../assets/x.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 40px;

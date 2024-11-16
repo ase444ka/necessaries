@@ -11,8 +11,8 @@
 import { mapStores } from 'pinia'
 import FooterBlock from './components/FooterBlock.vue';
 import HeaderBlock from './components/HeaderBlock.vue';
-import {productsApi} from '@/api';
-import {useProductStore} from '@/store'
+import {productsApi} from './api';
+import {useProductStore} from './store'
 
 
 export default {

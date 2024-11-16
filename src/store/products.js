@@ -1,5 +1,5 @@
 import {defineStore} from 'pinia';
-import {productsApi} from '@/api'
+import {productsApi} from '../api'
 
 export const useProductStore = defineStore({
   id: 'product',

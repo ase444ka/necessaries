@@ -27,7 +27,7 @@
   </main>
 </template>
 <script>
-import {useCartStore} from '@/store';
+import {useCartStore} from '../store';
 import {mapStores} from 'pinia';
 export default {
   name: 'CartPage',
@@ -88,7 +88,7 @@ export default {
 .remove {
   outline: none;
   border: none;
-  background: url(@/assets/trash.svg);
+  background: url(../assets/trash.svg);
   background-color: var(--white);
   width: 18px;
   height: 18px;

@@ -1,6 +1,6 @@
-import MainPage from '@/pages/MainPage.vue'
-import ProductPage from '@/pages/ProductPage.vue'
-import CartPage from '@/pages/CartPage.vue'
+import MainPage from './pages/MainPage.vue'
+import ProductPage from './pages/ProductPage.vue'
+import CartPage from './pages/CartPage.vue'
 
 export const routes = [
   { path: '/', name: 'main', component: MainPage },
